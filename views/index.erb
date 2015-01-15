@@ -1,0 +1,15 @@
+<h1>Dealerships</h1>
+
+<h3>Add a dealership here:</h3>
+
+<form action="/dealerships" method="post">
+  <label for='name'>Dealership's name:</label>
+  <input id='name' name='name' type='text'>
+  <button type="submit">Add Dealership</button>
+</form>
+
+<ul>
+  <% @dealerships.each() do |dealership| %>
+    <li><a href="/dealerships/<%= dealership.id() %>"><%= dealership.name() %></a></li>
+  <% end %>
+</ul>

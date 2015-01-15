@@ -1,0 +1,26 @@
+<h1>Add a vehicle to <%= @dealership.name() %> </h1>
+
+<form action="/vehicles" method="post">
+  <input id='dealership_id' name='dealership_id' type='hidden' value='<%= @dealership.id() %>'>
+
+  <label for='make'>Vehicle's make:</label>
+  <input id='make' name='make' type='text'>
+
+  <label for='model'>Vehicle's model:</label>
+  <input id='model' name='model' type='text'>
+
+  <label for='year'>Vehicle's year:</label>
+  <input id='year' name='year' type='text'>
+
+  <button type="submit">Add Vehicle</button>
+</form>
+
+<h3>Here are all the cars in this dealership:</h3>
+
+<ul>
+  <% @dealership.cars().each() do |car| %>
+    <li><a href="/vehicles/<%= car.id() %>"><%= car.make() %> <%= car.model() %> <%= car.year() %></a></li>
+  <% end %>
+</ul>
+
+<<a href="/">Return to Main Page</a>
